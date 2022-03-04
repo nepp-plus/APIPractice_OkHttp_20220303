@@ -2,6 +2,7 @@ package com.neppplus.apipractice_okhttp_20220303
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.apipractice_okhttp_20220303.databinding.ActivitySignUpBinding
 import com.neppplus.apipractice_okhttp_20220303.utils.ServerUtil
@@ -33,7 +34,23 @@ class SignUpActivity : BaseActivity() {
                 object : ServerUtil.JsonResponseHandler {
                     override fun onResponse(jsonObj: JSONObject) {
 
+//                        회원가입 성공 / 실패 분기
 
+                        val code = jsonObj.getInt("code")
+
+                        if (code == 200) {
+
+                        }
+                        else {
+                            val message = jsonObj.getString("message")
+                            
+                            runOnUiThread {
+
+                                Toast.makeText(mContext, "실패 사유 : ${message}", Toast.LENGTH_SHORT).show()
+                                
+                            }
+                            
+                        }
 
                     }
 
