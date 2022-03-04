@@ -2,8 +2,13 @@ package com.neppplus.apipractice_okhttp_20220303
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.apipractice_okhttp_20220303.databinding.ActivityMainBinding
+import com.neppplus.apipractice_okhttp_20220303.utils.ServerUtil
+import okhttp3.*
+import org.json.JSONObject
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             val inputPw = binding.edtPassword.text.toString()
             
 //            API서버에 아이디 / 비번을 보내서 실제로 회원인지 검사 => 로그인 시도
+
 
 
         }
