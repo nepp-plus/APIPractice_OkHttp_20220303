@@ -10,7 +10,7 @@ import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     lateinit var binding :  ActivityMainBinding
 
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setValues()
     }
 
-    fun setupEvents() {
+    override fun setupEvents() {
 
         binding.btnLogin.setOnClickListener {
 
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun setValues() {
+    override fun setValues() {
 
     }
 
