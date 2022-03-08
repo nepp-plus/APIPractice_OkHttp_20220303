@@ -2,6 +2,7 @@ package com.neppplus.apipractice_okhttp_20220303
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.apipractice_okhttp_20220303.databinding.ActivityViewTopicDetailBinding
@@ -35,6 +36,15 @@ class ViewTopicDetailActivity : BaseActivity() {
             ServerUtil.postRequestVote(mContext, mTopicData.sideList[0].id, object : ServerUtil.JsonResponseHandler {
                 override fun onResponse(jsonObj: JSONObject) {
 
+//                    토스트로, 서버가 알려준 현재 상황 (신규 투표 or 재투표 or 취소 등)
+                    val message = jsonObj.getString("message")
+
+                    runOnUiThread {
+                        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+                    }
+
+//                    변경된 득표 현황을 다시 불러오자.
+                    getTopicDetailFromServer()
 
 
                 }
