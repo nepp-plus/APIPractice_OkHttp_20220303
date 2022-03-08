@@ -55,6 +55,28 @@ class ViewTopicDetailActivity : BaseActivity() {
 
         }
 
+
+//        2번진영 선택시, 그 진영에 투표하기 (연습문제)
+
+        binding.btnVote2.setOnClickListener {
+
+            ServerUtil.postRequestVote(mContext, mTopicData.sideList[1].id, object : ServerUtil.JsonResponseHandler {
+
+                override fun onResponse(jsonObj: JSONObject) {
+
+                    val message = jsonObj.getString("message")
+                    runOnUiThread {
+                        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+                    }
+
+                    getTopicDetailFromServer()
+
+                }
+
+            })
+
+        }
+
     }
 
     override fun setValues() {
