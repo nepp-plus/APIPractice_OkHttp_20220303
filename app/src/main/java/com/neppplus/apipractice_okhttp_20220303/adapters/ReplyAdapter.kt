@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.neppplus.apipractice_okhttp_20220303.R
 import com.neppplus.apipractice_okhttp_20220303.ViewTopicDetailActivity
@@ -98,6 +99,18 @@ class ReplyAdapter(
                 }
             )
 
+        }
+
+//        [도전과제] 싫어요가 눌려도 마찬가지 처리. => 싫어요 API 호출 (기존 함수 활용) + 토론 상세화면 댓글 목록 새로고침
+
+
+//        좋아요가 눌렸는지, 아닌지. 글씨 색상 변경
+
+        if (data.isMyLike) {
+            txtLikeCount.setTextColor( ContextCompat.getColor(mContext, R.color.naver_red) )
+        }
+        else {
+            txtLikeCount.setTextColor( ContextCompat.getColor(mContext, R.color.deep_dark_gray) )
         }
 
         return row
