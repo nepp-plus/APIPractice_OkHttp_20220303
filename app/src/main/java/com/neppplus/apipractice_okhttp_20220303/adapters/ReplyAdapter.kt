@@ -36,6 +36,10 @@ class ReplyAdapter(
         val txtReplyContent = row.findViewById<TextView>(R.id.txtReplyContent)
         val txtCreatedAt = row.findViewById<TextView>(R.id.txtCreatedAt)
 
+        val txtReReplyCount = row.findViewById<TextView>(R.id.txtReReplyCount)
+        val txtLikeCount = row.findViewById<TextView>(R.id.txtLikeCount)
+        val txtHateCount = row.findViewById<TextView>(R.id.txtHateCount)
+
 
         txtReplyContent.text = data.content
         txtWriterNickname.text = data.writer.nickname
@@ -58,6 +62,11 @@ class ReplyAdapter(
 //        sdf.format( Date객체 )  => 지정해둔 양식의 String으로 가공.
 //        createdAt : Calendar / format의 파라미터 : Date   =>   Calendar의 내용물인 time변수가 Date.
         txtCreatedAt.text =   data.getFormattedCreatedAt()
+
+
+        txtReReplyCount.text = "답글 ${data.reReplyCount}"
+        txtLikeCount.text = "좋아요 ${data.likeCount}"
+        txtHateCount.text = "싫어요 ${data.hateCount}"
 
         return row
 
